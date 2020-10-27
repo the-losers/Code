@@ -1,5 +1,30 @@
 public class LinkedListUse {
 	
+	public static Node<Integer> takeInput()
+	{
+		Node<Integer> head = null, tail = null;
+		Scanner s = new Scanner(System.in);
+		int data = s.nextInt();
+				
+		while(data != -1){
+			Node<Integer> newNode = new Node<Integer>(data);
+			if(head == null){
+				head = newNode;
+				tail = newNode;
+			}else{
+//				Node<Integer> temp = head;
+//				while(temp.next != null){
+//					temp = temp.next;
+//				}
+//				temp.next = newNode;
+				tail.next = newNode;
+				tail = newNode; // tail = tail.next
+			}
+			data = s.nextInt();
+		}
+		return head;
+	}
+	
 	public static void print(Node<Integer> head){
 		
 		while(head != null){
