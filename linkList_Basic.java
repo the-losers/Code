@@ -34,6 +34,27 @@ public class LinkedListUse {
 		System.out.println();
 
 	}
+	
+	public static LinkedListNode<Integer> deleteNode(LinkedListNode<Integer> head, int pos) {
+		
+		if(pos == 0){
+			return head.next;
+		}
+		
+        int i = 0;
+		LinkedListNode<Integer> temp = head;
+		while(i < pos - 1 && temp != null){
+			temp = temp.next;
+			i++;
+		}
+        
+         if (temp == null || temp.next == null) 
+            return head; 
+        
+         temp.next = temp.next.next;
+		
+		return head;
+	}
 
 	public static Node<Integer> insert(Node<Integer> head, int data, int pos){
 		Node<Integer> newNode = new Node<Integer>(data);
