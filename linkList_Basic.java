@@ -1,5 +1,22 @@
 public class LinkedListUse {
 	
+	public static LinkedListNode<Integer> insertR(LinkedListNode<Integer> head, int data, int pos){
+		
+        if(pos == 0){
+            LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(data);
+            newNode.next = head;
+            return newNode;
+        }
+        
+        if(head == null){
+            return head;
+        }
+        
+        head.next = insertR(head.next,data,pos-1);
+        return head;
+		
+	}
+	
 	public static Node<Integer> takeInput()
 	{
 		Node<Integer> head = null, tail = null;
