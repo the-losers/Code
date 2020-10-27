@@ -17,6 +17,24 @@ public class LinkedListUse {
 		
 	}
 	
+	public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int pos) {
+    	
+		
+        if(pos == 0){
+            
+            return head.next;
+        }
+        
+        if(head == null || head.next == null){
+            return head;
+        }
+        
+        head.next = deleteNodeRec(head.next,pos-1);
+        return head;
+		
+	
+	}
+
 	public static Node<Integer> takeInput()
 	{
 		Node<Integer> head = null, tail = null;
