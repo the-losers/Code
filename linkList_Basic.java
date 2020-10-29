@@ -119,6 +119,23 @@ public class LinkedListUse {
 		
 
 	}
+	
+	  private static LinkedListNode reverse(LinkedListNode<Integer> head){
+     
+       LinkedListNode current = head; 
+       LinkedListNode next = null; 
+       LinkedListNode prev = null; 
+        while ( current != null)   
+       { 
+           next = current.next; 
+           current.next = prev; 
+           prev = current; 
+           current = next; 
+          
+       } 
+        
+        return prev;
+    }
 
 }
 
