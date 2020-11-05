@@ -16,6 +16,21 @@ public class ReverseLL {
 		return finalHead;
 	}
 	
+	//optimize
+	
+	public static Node<Integer> reverseR(Node<Integer> head){
+		if(head == null || head.next == null){
+			return head;
+		}
+		
+		Node<Integer> reversedTail = head.next;
+		Node<Integer> smallHead = reverseR(head.next);
+		
+		reversedTail.next = head;
+		head.next = null;
+		return smallHead;
+	}
+	
 	public static Node<Integer> takeInput()
 
 	{
