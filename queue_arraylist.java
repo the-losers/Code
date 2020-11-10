@@ -50,7 +50,21 @@ public class QueueUsingArray {
 //		}
 		data[rear] = element; 
 	}
-	
+	private void doubleCapacity() {
+		int temp[] = data;
+		data = new int[ 2* temp.length];
+		int index = 0;
+		for(int i = front ; i < temp.length; i++){
+			data[index] = temp[i];
+			index++;
+		}
+		for(int i = 0; i <= front - 1;i++){
+			data[index] = temp[i];
+			index++;
+		}
+		front = 0;
+		rear = temp.length - 1;
+	}
 	int dequeue() throws QueueEmptyException{
 		if(size == 0){
 			throw new QueueEmptyException();
