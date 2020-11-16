@@ -131,6 +131,42 @@ class TreeUse {
 		return root;
 	}
 	
+		public static int numNodes(TreeNode<Integer> root) {
+		if (root == null) {
+			return 0;
+		}
+		int count = 1;
+		for (int i = 0; i < root.children.size(); i++) {
+			count += numNodes(root.children.get(i));
+		}
+		return count;
+	}
+	
+	public static int sumOfAllNode(TreeNode<Integer> root){
+	  if (root == null) {
+			return 0;
+		}
+		int count = root.data;
+		for (int i = 0; i < root.children.size(); i++) {
+			count += sumOfAllNode(root.children.get(i));
+		}
+		return count;
+	}
+	
+		public static int largest(TreeNode<Integer> root) {
+		if (root == null) {
+			return Integer.MIN_VALUE;
+		}
+		
+		int ans = root.data;
+		for (int i = 0; i < root.children.size(); i++) {	
+			int childLargest = largest(root.children.get(i));
+			if (childLargest > ans) {
+				ans = childLargest;
+			}
+		}
+		return ans;
+	}
 	public static void main(String[] args) {
 //		Scanner s= new Scanner(System.in);
 //		
@@ -139,3 +175,4 @@ class TreeUse {
 		print(root);
 	}
 }
+
