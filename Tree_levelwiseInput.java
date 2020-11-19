@@ -10,6 +10,24 @@ public class Node<T> {
 	
 	
 }
+  public static void replaceWithDepthValue(TreeNode<Integer> root){
+
+        if(root == null){
+            return ;
+        }
+
+        replaceWithDepthValue(root,0);
+    }
+
+    public static void replaceWithDepthValue(TreeNode<Integer> root, int k) {
+       
+        root.data = k;
+
+        for (int i = 0; i < root.children.size(); i++) {
+           
+            replaceWithDepthValue(root.children.get(i), k + 1);
+        }
+    }
 public static int getHeight(TreeNode<Integer> root){
 		int height = 0;
     		if (root == null ) {
