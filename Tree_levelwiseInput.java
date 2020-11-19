@@ -8,8 +8,61 @@ public class Node<T> {
 		next = null;
 	}
 	
+	
 }
+public static int getHeight(TreeNode<Integer> root){
+		int height = 0;
+    		if (root == null ) {
+   				 return height;
+   			 }
+   
+        if (root.children == null) {
+   				 return 1;
+  			}
+ 		  for (TreeNode<Integer> child : root.children) {
+ 				   height = Math.max(height, getHeight(child));
+  				}
+  		 return height + 1;
+	}
 
+public static int countLeafNodes(TreeNode<Integer> root){
+ int s = 0;
+		if(root == null){
+            return 0;
+        }
+        
+        if(root.children.size() == 0){
+            return 1;
+        }
+        
+        for (int i = 0; i < root.children.size(); i++) {
+			s = s + countLeafNodes(root.children.get(i));
+		}
+return s;
+	}
+
+	public static void preorder(TreeNode<Integer> root) {
+		if (root == null) {
+			return;
+		}
+		System.out.print(root.data + " ");
+		for (int i = 0; i < root.children.size(); i++) {
+			preorder(root.children.get(i));
+		}
+	}
+
+	public static void printAtK(TreeNode<Integer> root, int k) {
+		if (k < 0) {
+			return;
+		}
+		if (k == 0) {
+			System.out.println(root.data);
+			return;
+		}
+		for (int i = 0; i < root.children.size(); i++) {
+			printAtK(root.children.get(i), k - 1);
+		}
+	}
 class QueueUsingLL<T> {
 
 	private Node<T> front;
