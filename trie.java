@@ -56,6 +56,17 @@ public class Trie {
 		}
 		return ans;
 	}
+	 public boolean search(TrieNode root, String word){
+        if(word.length() == 0){
+			return root.isTerminating;
+		}
+		int childIndex = word.charAt(0) - 'a';
+		TrieNode child = root.children[childIndex];
+		if(child == null){
+			return false;
+		}
+        return search(child,word.substring(1));
+	}
 
 	private boolean add(TrieNode root, String word){
 		if(word.length() == 0){
